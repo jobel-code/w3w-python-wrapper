@@ -6,6 +6,7 @@ Unit tests for what3words API wrapper lib
 
 import what3words
 import json
+import sys
 from os import environ
 
 api_key = environ['W3W_API_KEY']
@@ -15,9 +16,11 @@ lng = -0.125499
 english = {'code': 'en', 'name': 'English', 'native_name': 'English'}
 suggest = 'indx.home.rqft'
 
-print api_key
+sys.stderr.write('api-key: {}'.format(api_key))
 
 def testInvalidKey():
+    print('api-key: {}'.format(api_key))
+    sys.stderr.write('api-key: {}'.format(api_key))
     badkey = 'BADKEY'
     geocoder = what3words.Geocoder(badkey)
     result = geocoder.convert_to_coordinates(addr)
@@ -26,6 +29,8 @@ def testInvalidKey():
 
 
 def testConvertToCoordinates():
+    print('api-key: {}'.format(api_key))
+    sys.stderr.write('api-key: {}'.format(api_key))
     geocoder = what3words.Geocoder(api_key)
     result = geocoder.convert_to_coordinates(addr)
     assert result['language'] == 'en'
