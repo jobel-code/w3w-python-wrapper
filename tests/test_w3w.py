@@ -15,6 +15,7 @@ lng = -0.125499
 english = {'code': 'en', 'name': 'English', 'native_name': 'English'}
 suggest = 'indx.home.rqft'
 
+print api_key
 
 def testInvalidKey():
     badkey = 'BADKEY'
@@ -66,7 +67,7 @@ def testGrid():
     bb = what3words.BoundingBox(sw, ne)
 
     result = geocoder.grid_section(bb)
-    
+
     assert result['lines'] is not None
 
 
