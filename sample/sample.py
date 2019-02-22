@@ -24,7 +24,7 @@ sw = what3words.Coordinates(52.207988,0.116126)
 ne = what3words.Coordinates(52.208867,0.117540)
 bb = what3words.BoundingBox(sw, ne)
 
-res = geocoder.grid_section(bounding_box=bb)
+res = geocoder.grid_section(bb)
 print(res)
 print('\n')
 
