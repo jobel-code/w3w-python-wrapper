@@ -95,23 +95,23 @@ For safe storage of your API key on your computer, you can define that API key u
 $ export W3W_API_KEY=<Secret API Key>
 ```
 
-### Forward Geocode
+### Convert to coordinates
 ```python
 >>> import what3words
 >>> from os import environ
 >>> api_key = environ['W3W_API_KEY']
 >>> w3w = what3words.Geocoder(api_key)
->>> res = w3w.forward(addr='prom.cape.pump')
+>>> res = w3w.convert_to_coordinates(addr='prom.cape.pump')
 >>> print(res)
 ```
 
-### Reverse Geocode
+### Convert to 3 word address
 ```python
 >>> import what3words
 >>> from os import environ
 >>> api_key = environ['W3W_API_KEY']
 >>> w3w = what3words.Geocoder(api_key)
->>> res = w3w.reverse(lat=51.484463, lng=-0.195405)
+>>> res = w3w.convert_to_3wa(what3words.Coordinates(51.484463,-0.195405))
 >>> print(res)
 ```
 
@@ -131,6 +131,7 @@ Anyone and everyone is welcome to contribute.
 
 # Revision History
 
+* `v3.0.0`  04/02/19 - Updated wrapper to use what3words API v3
 * `v2.2.1`  08/09/17 - Python 3 setup install fixed thanks to [@joedborg](https://github.com/joedborg)
 * `v2.2.0`  07/09/17 - Python 3 support, thanks to [@joedborg](https://github.com/joedborg)
 * `v2.1.1`  07/09/17 - update README : this library is compatible with Python 2
